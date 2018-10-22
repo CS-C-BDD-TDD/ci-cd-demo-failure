@@ -28,7 +28,15 @@ public class HumanreviewApiController implements HumanreviewApi {
 
 	private final NativeWebRequest request;
 	
-	private static final String PASSWORD = "hardcodedpassword";
+	Connection conn = null;
+	try {
+ 		 conn = DriverManager.getConnection("jdbc:mysql://localhost/test?" + "user=steve&password=blue"); // Noncompliant
+  String uname = "steve";
+  String password = "blue";
+  conn = DriverManager.getConnection("jdbc:mysql://localhost/test?" +
+        "user=" + uname + "&password=" + password); // Noncompliant
+
+  java.net.PasswordAuthentication pa = new java.net.PasswordAuthentication("userName", "1234".toCharArray());  // Noncompliant
 
 	@org.springframework.beans.factory.annotation.Autowired
 	public HumanreviewApiController(NativeWebRequest request, HumanreviewRepository hrRepo) {
