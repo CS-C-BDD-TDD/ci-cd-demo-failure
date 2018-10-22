@@ -28,6 +28,8 @@ import io.swagger.annotations.ApiParam;
 public class UserApiController implements UserApi {
 
 	private final NativeWebRequest request;
+	
+	private static final String PASSWORD = "hardcodedpassword";
 
 	@org.springframework.beans.factory.annotation.Autowired
 	public UserApiController(NativeWebRequest request, AuthCredentialsRepository authCredentialsRepository) {
