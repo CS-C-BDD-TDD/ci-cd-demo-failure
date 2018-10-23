@@ -6,7 +6,7 @@
 	<artifactId>human-review-backend</artifactId>
 	<packaging>jar</packaging>
 	<name>human-review-backend</name>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<properties>
 		<java.version>1.8</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
