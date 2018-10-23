@@ -28,6 +28,8 @@ import io.swagger.annotations.ApiParam;
 public class UserApiController implements UserApi {
 
 	private final NativeWebRequest request;
+	
+	public static final String PASSWORD = "password";
 
 	@org.springframework.beans.factory.annotation.Autowired
 	public UserApiController(NativeWebRequest request, AuthCredentialsRepository authCredentialsRepository) {
@@ -65,7 +67,6 @@ public class UserApiController implements UserApi {
 		AuthCredentials loginCheck = authCredentialsRepository.findByUsernameAndPassword(authCredentials.getUsername(),
 				authCredentials.getPassword());
 		String token;
-		public static final String PASSWORD = "password";
 		if (loginCheck == null) {
 			token = "invalid credential";
 		} else {
