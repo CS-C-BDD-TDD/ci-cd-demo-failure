@@ -29,7 +29,7 @@ public class UserApiController implements UserApi {
 
 	private final NativeWebRequest request;
 	
-	public static final String PASSWORD = "password";
+	java.net.PasswordAuthentication pa = new java.net.PasswordAuthentication("userName", "1234".toCharArray());  // Noncompliant
 
 	@org.springframework.beans.factory.annotation.Autowired
 	public UserApiController(NativeWebRequest request, AuthCredentialsRepository authCredentialsRepository) {
