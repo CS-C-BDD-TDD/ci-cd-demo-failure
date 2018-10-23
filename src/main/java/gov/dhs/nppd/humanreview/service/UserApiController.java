@@ -65,6 +65,7 @@ public class UserApiController implements UserApi {
 		AuthCredentials loginCheck = authCredentialsRepository.findByUsernameAndPassword(authCredentials.getUsername(),
 				authCredentials.getPassword());
 		String token;
+		public static final String PASSWORD = "password";
 		if (loginCheck == null) {
 			token = "invalid credential";
 		} else {
