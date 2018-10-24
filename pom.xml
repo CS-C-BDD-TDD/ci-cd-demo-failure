@@ -17,9 +17,6 @@
 		<serenity.maven.version>1.9.30</serenity.maven.version>
 		<serenity.cli.version>1.11.0</serenity.cli.version>
 		<serenity.cucumber.version>1.6.13</serenity.cucumber.version>
-<!-- 		<sonar.exclusions>src/main/java/org/**/*,src/main/resources/**/*</sonar.exclusions>
-		<sonar.inclusions>src/main/java/gov/**/*</sonar.inclusions>
-		<sonar.java.source>1.8</sonar.java.source> -->
 	</properties>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -37,8 +34,8 @@
 						<target>1.8</target>
 					</configuration>
 				</plugin>
-				<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-publish-plugin</artifactId> 
-					<configuration> <ignorePathsToDelete> <ignorePathToDelete>archive**</ignorePathToDelete> 
+				<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-publish-plugin</artifactId>
+					<configuration> <ignorePathsToDelete> <ignorePathToDelete>archive**</ignorePathToDelete>
 					</ignorePathsToDelete> </configuration> </plugin> -->
 
 			</plugins>
@@ -66,8 +63,8 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId> 
-				<version>3.0.2</version> <executions> <execution> <goals> <goal>test-jar</goal> 
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version> <executions> <execution> <goals> <goal>test-jar</goal>
 				</goals> </execution> </executions> </plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -175,13 +172,13 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<!--Mysql connector -->
 		<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-        
+
 		<!--SpringFox dependencies -->
 		<dependency>
 			<groupId>io.springfox</groupId>
