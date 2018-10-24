@@ -26,7 +26,7 @@ public class UserApiController implements UserApi {
 
 	private final NativeWebRequest request;
 	public final String password = "someInsecurePassword";
-	
+
 	@org.springframework.beans.factory.annotation.Autowired
 	public UserApiController(NativeWebRequest request, AuthCredentialsRepository authCredentialsRepository) {
 		this.request = request;
@@ -58,8 +58,8 @@ public class UserApiController implements UserApi {
 		HttpHeaders headers = new HttpHeaders();
 		Date date = new Date();
 		headers.add("Content-type", "text/plain");
-		AuthCredentials loginCheck = authCredentialsRepository.findByUsernameAndPassword(authCredentials.getUsername(),
-				authCredentials.getPassword());
+//		AuthCredentials loginCheck = authCredentialsRepository.findByUsernameAndPassword(authCredentials.getUsername(),	authCredentials.getPassword());
+		AuthCredentials loginCheck = authCredentialsRepository.findByUsernameAndPassword(authCredentials.getUsername(),	password);
 		String token;
 		if (loginCheck == null) {
 			token = "invalid credential";
