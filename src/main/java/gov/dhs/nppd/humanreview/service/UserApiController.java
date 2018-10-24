@@ -59,7 +59,7 @@ public class UserApiController implements UserApi {
 		Date date = new Date();
 		headers.add("Content-type", "text/plain");
 //		AuthCredentials loginCheck = authCredentialsRepository.findByUsernameAndPassword(authCredentials.getUsername(),	authCredentials.getPassword());
-		AuthCredentials loginCheck = authCredentialsRepository.findByUsernameAndPassword(authCredentials.getUsername(),	password);
+		AuthCredentials loginCheck = authCredentialsRepository.findByUsernameAndPassword(authCredentials.getUsername(),	authCredentials.getPassword());
 		String token;
 		if (loginCheck == null) {
 			token = "invalid credential";
