@@ -137,8 +137,12 @@
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
 				<version>3.3.2</version>
+				<configuration>
+					<failBuildOnCVSS>7</failBuildOnCVSS>
+				</configuration>
 				<executions>
 					<execution>
+						<phase>test</phase>
 						<goals>
 							<goal>check</goal>
 						</goals>
@@ -147,6 +151,20 @@
 			</plugin>
 		</plugins>
 	</build>
+	<dependencyManagement>
+	  <dependencies>
+		  <dependency>
+			  <groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-core</artifactId>
+				<version>8.5.34</version>
+			</dependency>
+		  <dependency>
+			  <groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-websocket</artifactId>
+				<version>8.5.34</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<!-- JDBC dependencies -->
 		<dependency>
@@ -204,12 +222,14 @@
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-core</artifactId>
 			<version>${serenity.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-model -->
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-model</artifactId>
 			<version>${serenity.version}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber -->
@@ -217,18 +237,21 @@
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-cucumber</artifactId>
 			<version>${serenity.cucumber.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-reports -->
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-reports</artifactId>
 			<version>${serenity.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cli -->
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-cli</artifactId>
 			<version>${serenity.cli.version}</version>
+			<scope>test</scope>
 			<type>pom</type>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
@@ -236,7 +259,6 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.7.25</version>
-			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
 		<dependency>
