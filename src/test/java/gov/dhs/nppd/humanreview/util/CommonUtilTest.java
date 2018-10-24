@@ -6,16 +6,9 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.openapitools.model.AuthCredentials;
 import org.openapitools.repository.AuthCredentialsRepository;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
 
 
 public class CommonUtilTest {
@@ -60,7 +53,7 @@ public class CommonUtilTest {
 		boolean resp = ctr.tokenValidator(enteredAuthCredentials.getToken());
 
 		// Assert
-		assertEquals(resp, true);
+		assertEquals(true, resp);
 	}
 	
 	@Test
@@ -71,7 +64,7 @@ public class CommonUtilTest {
 		boolean resp = ctr.tokenValidator(enteredAuthCredentials.getToken());
 
 		// Assert
-		assertEquals(resp, false);
+		assertEquals(false, resp);
 	}
 	
 	@Test
@@ -82,7 +75,7 @@ public class CommonUtilTest {
 		boolean resp = ctr.tokenValidator(enteredAuthCredentials.getToken());
 
 		// Assert
-		assertEquals(resp, false);
+		assertEquals(false, resp);
 	}
 	
 }

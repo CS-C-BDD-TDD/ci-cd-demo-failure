@@ -5,7 +5,6 @@ import java.util.Date;
 import org.openapitools.model.AuthCredentials;
 import org.openapitools.repository.AuthCredentialsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -44,11 +43,7 @@ public class CommonUtil {
 		LOGGER.debug("Token Expire Time: " + afterAddingMins );
 		LOGGER.debug("****************************");
 		
-		if (tokenCheck != null && !tokenCheck.getDate().after(now) && !afterAddingMins.before(now)) {
-			return true;
-		} else {
-			return false;
-		}
+		return (!tokenCheck.getDate().after(now) && !afterAddingMins.before(now));
 	}
 
 	public AuthCredentialsRepository getAuthCredentialsRepository() {

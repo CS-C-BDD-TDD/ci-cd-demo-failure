@@ -1,10 +1,7 @@
 package gov.dhs.nppd.humanreview.service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.openapitools.api.UserApi;
@@ -28,13 +25,11 @@ import io.swagger.annotations.ApiParam;
 public class UserApiController implements UserApi {
 
 	private final NativeWebRequest request;
+	public final String password = "someInsecurePassword";
 	
-	java.net.PasswordAuthentication pa = new java.net.PasswordAuthentication("userName", "1234".toCharArray());  // Noncompliant
-
 	@org.springframework.beans.factory.annotation.Autowired
 	public UserApiController(NativeWebRequest request, AuthCredentialsRepository authCredentialsRepository) {
 		this.request = request;
-		authCredentialsRepository = authCredentialsRepository;
 	}
 
 	@Override
@@ -61,7 +56,6 @@ public class UserApiController implements UserApi {
 	public ResponseEntity<String> userPut(
 			@ApiParam(value = "Allow the user to submit their credentials and on success return a token for use in making other REST calls", required = true) @Valid @RequestBody AuthCredentials authCredentials) {
 		HttpHeaders headers = new HttpHeaders();
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		headers.add("Content-type", "text/plain");
 		AuthCredentials loginCheck = authCredentialsRepository.findByUsernameAndPassword(authCredentials.getUsername(),
