@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 
 @Component
 public class CommonUtil {
-	public static String password="12345";
+
 
 	@Autowired
 	AuthCredentialsRepository authCredentialsRepository;
