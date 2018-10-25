@@ -18,11 +18,9 @@ public class CommonUtil {
 
 	//@Value("${gov.dhs.nppd.tokenTimeout}")
 	private long tokenTimeout= 1800000;
-
 	private static final Logger LOGGER = LogManager.getLogger(CommonUtil.class);
 
 	public boolean tokenValidator(String token) {
-		public static String password="test";
 		LOGGER.debug("Current Token to validate: " + token);
 		LOGGER.debug("Current tokenTimeout " + tokenTimeout);
 
