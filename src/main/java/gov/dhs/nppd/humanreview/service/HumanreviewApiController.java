@@ -2,12 +2,12 @@ package gov.dhs.nppd.humanreview.service;
 
 import java.util.Optional;
 
-import org.eclipse.jetty.http.HttpStatus;
 import org.openapitools.api.HumanreviewApi;
 import org.openapitools.model.ListOfHumanReviewItems;
 import org.openapitools.repository.HumanreviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -56,7 +56,7 @@ public class HumanreviewApiController implements HumanreviewApi {
 		// token is missing
 		if (headers.get("token") == null || headers.get("token").isEmpty()) {
 			headers.add("Content-type", "application/json");
-			return ResponseEntity.status(HttpStatus.FORBIDDEN_403).headers(headers).body(listOfHumanReviewItems);
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).headers(headers).body(listOfHumanReviewItems);
 		}
 		String tokenHeader = headers.get("token").get(0);
 		if (commonUtil.tokenValidator(tokenHeader)) {
@@ -67,7 +67,7 @@ public class HumanreviewApiController implements HumanreviewApi {
 			return ResponseEntity.accepted().headers(headers).body(listOfHumanReviewItems);
 		} else {// token was not found
 			headers.add("Content-type", "application/json");
-			return ResponseEntity.status(HttpStatus.FORBIDDEN_403).headers(headers).body(listOfHumanReviewItems);
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).headers(headers).body(listOfHumanReviewItems);
 		}
 	}
 
